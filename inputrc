@@ -1,0 +1,28 @@
+set editing-mode emacs
+set bell-style none
+set visible-stats on
+
+"\C-x\C-r": re-read-init-file
+"\C-x\C-b": ". ~/.bashrc\n"
+
+"\C-d": backward-kill-word
+"\C-k": kill-whole-line
+"\C-xk": kill-line
+
+"\C-f": forward-word
+"\C-b": backward-word
+"\ef": forward-char
+"\eb": backward-char
+
+# Completion
+TAB: complete           # tab
+"\e[Z": menu-complete   # shift-tab
+
+"\eu": 'cd ..\015'      # Alt-u
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+$include ~/.inputrc_local

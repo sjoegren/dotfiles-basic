@@ -1,0 +1,45 @@
+- clean: ['~']
+
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- shell:
+  - command: |
+      if [ -f ~/.gitconfig ] && ! [ -h ~/.gitconfig ]; then
+        mv -bv ~/.gitconfig ~/.gitconfig_local
+      else
+        echo " - skipping..." >&2
+      fi
+    description: Rename existing gitconfig
+    quiet: true
+    stdout: true
+    stderr: true
+
+- link:
+    ~/.dotfiles:
+      path: ''
+    ~/.gitconfig:
+    ~/.inputrc:
+    ~/.vimrc:
+
+- shell:
+  - command: |
+      if ! [ -f ~/.bashrc ] || ! grep -q "dotfiles/bashrc" ~/.bashrc; then
+        echo '[ -f ~/.dotfiles/bashrc ] && source ~/.dotfiles/bashrc' >> ~/.bashrc
+      fi
+    description: Appending config to ~/.bashrc
+    quiet: true
+    stdout: true
+    stderr: true
+  - command: |
+      if ! hash fzf 2> /dev/null && hash git && ! [ -e ~/.fzf ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install --key-bindings --no-completion --no-update-rc --no-zsh --no-fish
+      else
+        echo " - skipping..." >&2
+      fi
+    description: Installing fzf
+    quiet: true
+    stderr: true

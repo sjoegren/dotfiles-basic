@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+CONFIG="install.conf.yaml"
+DOTBOT_DIR=".dotbot"
+
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+cd "${BASEDIR}"
+set +e
+# Try to use -C, otherwise fall back.
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive 2> /dev/null
+rv=$?
+set -e
+if [ $rv -ne 0 ]; then  # for old gits without -C
+	git submodule sync --quiet --recursive
+fi
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

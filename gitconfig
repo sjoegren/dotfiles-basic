@@ -1,0 +1,22 @@
+[alias]
+	alias = !git config --global --list | grep ^alias
+	br = branch
+	ci = commit
+	co = checkout
+	st = status
+	hist = log --graph --pretty=format:'%Cred%h%Creset %Cblue%ad%Creset %s %Cgreen[%an] %C(auto)%d%Creset' --date=short
+[log]
+	date = iso
+[push]
+	default = simple
+[pull]
+	ff = only
+[core]
+	autocrlf = input
+[grep]
+	lineNumber = true
+	patternType = extended
+[color]
+	ui = auto
+[include]
+	path = ~/.gitconfig_local
