@@ -11,8 +11,6 @@ alias ls="ls --color=auto"
 alias mv='mv -i'
 alias r='fc -s'
 alias rm='rm -I'
-alias tree='tree -C'
-alias treefull='tree -Cfi'
 
 export EDITOR=vim
 
@@ -54,7 +52,3 @@ unset txtblk txtred txtgrn txtylw txtblu txtpur txtcyn txtwht \
 	bldblk bldred bldgrn bldylw bldblu bldpur bldcyn bldwht txtrst userc
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-if [ -r ~/.bashrc_local ]; then
-	. ~/.bashrc_local
-fi
