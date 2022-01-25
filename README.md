@@ -6,7 +6,7 @@ servers and such. Tested on CentOS 7/8.
 Clone repo and install using [dotbot]:
 
 ```
-git clone https://github.com/akselsjogren/dotfiles-basic.git ~/dotfiles && ~/dotfiles/install
+git clone https://github.com/sjoegren/dotfiles-basic.git ~/dotfiles && ~/dotfiles/install
 ```
 
 The Vim plugins in [vimrc](vimrc) are automatically installed using [vim-plug]
