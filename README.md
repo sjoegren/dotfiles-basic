@@ -9,6 +9,12 @@ Clone repo and install using [dotbot]:
 git clone https://github.com/sjoegren/dotfiles-basic.git ~/dotfiles && ~/dotfiles/install
 ```
 
+or auto-install:
+
+```
+curl -fLo- https://raw.githubusercontent.com/sjoegren/dotfiles-basic/main/bootstrap.sh | bash
+```
+
 The Vim plugins in [vimrc](vimrc) are automatically installed using [vim-plug]
 on first Vim invocation.
 
