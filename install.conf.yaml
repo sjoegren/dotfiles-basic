@@ -23,6 +23,7 @@
       relink: false
     ~/.gitconfig:
     ~/.inputrc:
+    ~/.tmux.conf:
     ~/.vimrc:
 
 - shell:
