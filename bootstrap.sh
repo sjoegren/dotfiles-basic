@@ -4,7 +4,7 @@ set -eu
 
 cd ~
 target_path=dotfiles
-install_tools=(git curl vim)
+install_tools=(python3 git curl vim)
 run_install=false
 for tool in "${install_tools[@]}"; do
 	if ! command -pv "$tool" >/dev/null; then
@@ -15,12 +15,12 @@ done
 
 if $run_install; then
 	if command -pv apt >/dev/null; then
-		apt update
-		apt -y install "${install_tools[@]}"
+		sudo apt update
+		sudo apt -y install "${install_tools[@]}"
 	elif command -pv dnf >/dev/null; then
-		dnf -y install "${install_tools[@]}"
+		sudo dnf -y install "${install_tools[@]}"
 	elif command -pv yum >/dev/null; then
-		yum -y install "${install_tools[@]}"
+		sudo yum -y install "${install_tools[@]}"
 	fi
 fi
 
